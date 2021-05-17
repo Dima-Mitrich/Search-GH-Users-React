@@ -1,0 +1,61 @@
+.user-profile {
+    width: 32%;
+}
+
+#userAvatar {
+    border-radius: 50%;
+    width: 60%;
+    min-width: 150px;
+    margin-top: 8%;
+    margin-left: 12%;
+}
+
+#span-name {
+    display: block;
+    color: black;
+    margin-left: 12%;
+    margin-top: 6%;
+    font-family: 'Inter';
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 33.8px;
+}
+
+#a-userName {
+    display: block;
+    color: rgba(0, 100, 235, 1);
+    text-decoration: none;
+    margin-left: 12%;
+    margin-top: 3%;
+    font-family: 'Inter';
+    font-size: 18px;
+}
+
+#followersContainer {
+    margin-left: 12%;
+    margin-top: 5.5%;
+    display: flex;
+}
+
+#followersContainer img {
+    width: 24px;
+    min-width: 24px;
+    max-height: 24px;
+}
+
+#followersContainer span {
+    display: block;
+    margin-left: 8px;
+    margin-right: 20px;
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url(./fonts/Inter-VariableFont_slnt\,wght.ttf);
+    font-style: normal;
+}

@@ -1,0 +1,73 @@
+.user-repos {
+    width: 68%;
+}
+
+.paginate-descriptor {
+    display: inline-block;
+    list-style-type: none;
+    margin: 5px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    font-family: 'Inter';
+    margin-top: 20px;
+}
+
+.page-li, .break-li, .next-li, .prev-li{
+    display: inline-block;
+    list-style-type: none;
+    margin: 5px;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 400;
+    color: rgba(128, 128, 128, 1);
+    cursor: pointer;
+    font-family: 'Inter';
+}
+
+.page-li:hover, .active-li {
+    background-color: rgba(0, 100, 235, 1);
+    color: white;
+    border-radius: 20%;
+}
+
+.paginate-container {
+    margin-top: 1%;
+    padding-right: 7%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.paginate-container ul {
+    padding-left: 10px;
+}
+
+.paginate-container li a {
+    padding: 3px 6px;
+}
+
+.next-li:hover, .prev-li:hover, .break-li:hover {
+    color: rgba(0, 100, 235, 1);
+}
+
+.break-li {
+    margin: 5px;
+}
+
+.next-li {
+    margin-left: 15px;
+}
+
+.prev-li {
+    margin-right: 15px;
+}
+
+.repositories-title {
+    display: block;
+    font-family: 'Inter';
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 42px;
+    margin-top: 28px;
+}
