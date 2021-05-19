@@ -2,14 +2,19 @@ import React, { Fragment } from 'react';
 import EmptyScreen from './EptyScreen';
 import ReactPaginate from 'react-paginate';
 import Repository from './Repository';
+import { Preloader } from './Preloader';
 
 import './UserRepos.css'
 
 class UserRepos extends React.Component {
 
-    try = (arg) => {
+    state = {
+        isFetching: false,
+    }
+
+    onPageChange = (arg) => {
         let currPage = arg.selected + 1;
-        this.props.cbUpdateRepos(currPage);
+        if (this.props.currentPage !== currPage) this.props.cbUpdateRepos(currPage);
     }
 
     render() {
@@ -21,7 +26,7 @@ class UserRepos extends React.Component {
                 key={index} />
         )
 
-        let bottomReposLine = (this.props.currentPage - 1) * this.props.userRepos.length + 1;
+        let bottomReposLine = (this.props.currentPage - 1) * 4 + 1;
         let topReposLine = bottomReposLine + this.props.userRepos.length - 1;
 
         let userRepositories = (
@@ -42,14 +47,17 @@ class UserRepos extends React.Component {
                         nextClassName='next-li'
                         previousClassName='prev-li'
                         activeClassName='active-li'
-                        onPageChange={this.try} />
+                        onPageChange={this.onPageChange}
+                        forcePage={this.props.currentPage - 1}
+                        />
                 </div>
             </Fragment>
         )
 
         return (
             <div className='user-repos'>
-                {
+                {   this.props.isFetching ?
+                    <Preloader type='Oval' width={80} height={80} color='rgba(0, 100, 235, 1)' /> :
                     this.props.userRepos.length ?
                         userRepositories :
                         <EmptyScreen status='no repos' />

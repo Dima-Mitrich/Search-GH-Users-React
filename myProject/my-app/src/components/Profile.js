@@ -5,7 +5,8 @@ import following from './images/provate.png';
 
 import './Profile.css'
 
-class Profile extends React.Component {
+class Profile extends React.PureComponent {
+
     render() {
         return (
             <div id='userProfile' className='user-profile'>

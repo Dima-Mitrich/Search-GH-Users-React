@@ -3,17 +3,20 @@ import Header from './Header';
 import EmptyScreen from './EptyScreen';
 import Profile from './Profile';
 import UserRepos from './UserRepos';
+import { Preloader } from './Preloader';
 
 import './MainContainer.css'
 
 class MainContainer extends React.Component {
 
     state = {
-        profileIsReady: false,
+        searchHasStarted: false,
         userInfo: null,
         userRepo: null,
         status: 'default',
         currentPage: null,
+        isFetching: false,
+        isFetchingRepos: false,
     }
 
     getUser = (userName) => {
@@ -21,16 +24,7 @@ class MainContainer extends React.Component {
             try {
                 let responseUserParams = await fetch(`https://api.github.com/users/${userName}`);
 
-                if (responseUserParams.status === 404) {
-                    this.setState({
-                        profileIsReady: false,
-                        userInfo: null,
-                        userRepo: null,
-                        status: 'user not found',
-                        currentPage: null,
-                    })
-                    throw new Error('user not found');
-                }
+                if (responseUserParams.status === 404) throw new Error('user not found');
 
                 let userParams = await responseUserParams.json();
 
@@ -46,7 +40,7 @@ class MainContainer extends React.Component {
 
                 return userInfoCollection;
             } catch (error) {
-                console.log(error);
+                return error;
             }
         }
     }
@@ -62,18 +56,38 @@ class MainContainer extends React.Component {
 
     startSearching = (userName) => {
         (async function () {
-            let userInfoCollection = await this.getUser(userName).bind(this)();
-            let userRepo = await this.getRepositories(userName, 1).bind(this)();
+            this.setState({ isFetching: true, searchHasStarted: true });
+            try {
+                let userInfoCollection = await this.getUser(userName).bind(this)();
 
-            this.setState({ profileIsReady: true, userInfo: userInfoCollection, userRepo: userRepo, currentPage: 1 });
+                if (userInfoCollection instanceof Error) {
+                    this.setState({
+                        searchHasStarted: false,
+                        userInfo: null,
+                        userRepo: null,
+                        status: 'user not found',
+                        currentPage: null,
+                        isFetching: false,
+                    })
+                    throw userInfoCollection;
+                }
+
+                let userRepo = await this.getRepositories(userName, 1).bind(this)();
+
+                this.setState({ profileIsReady: true, userInfo: userInfoCollection, userRepo: userRepo, currentPage: 1, isFetching: false });
+            } catch (err) {
+                console.log(err)
+            }
         }).bind(this)()
+
     }
 
     updateRepos = (i) => {
         (async function () {
+            this.setState({isFetchingRepos: true})
             let currUser = this.state.userInfo.userName
             let newPageRepos = await this.getRepositories(currUser, i).bind(this)();
-            this.setState({ userRepo: newPageRepos, currentPage: i })
+            this.setState({ userRepo: newPageRepos, currentPage: i, isFetchingRepos: false })
         }).bind(this)()
     }
 
@@ -82,15 +96,18 @@ class MainContainer extends React.Component {
             <div className='mainContainer'>
                 <Header cbStartSearching={this.startSearching} id='pageHeader' />
                 {
-                    (this.state.profileIsReady) ?
-                        <div className='userContainer'>
-                            <Profile userInfo={this.state.userInfo} id='pageProfile' />
-                            <UserRepos userRepos={this.state.userRepo}
-                                numberRepos={this.state.userInfo.numberOfUserRepos}
-                                cbUpdateRepos={this.updateRepos}
-                                currentPage={this.state.currentPage}
-                                id='pageRepos' />
-                        </div> :
+                    this.state.searchHasStarted ?
+                        this.state.isFetching ?
+                            <Preloader type='Oval' width={80} height={80} color='rgba(0, 100, 235, 1)' /> :
+                            <div className='userContainer'>
+                                <Profile userInfo={this.state.userInfo} id='pageProfile' />
+                                <UserRepos userRepos={this.state.userRepo}
+                                    numberRepos={this.state.userInfo.numberOfUserRepos}
+                                    cbUpdateRepos={this.updateRepos}
+                                    currentPage={this.state.currentPage}
+                                    isFetching={this.state.isFetchingRepos}
+                                    id='pageRepos' />
+                            </div> :
                         <EmptyScreen status={this.state.status} id='pageEmptyScreen' />
                 }
             </div>

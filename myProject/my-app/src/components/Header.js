@@ -2,7 +2,7 @@ import React from 'react';
 import './Header.css';
 import logo from './images/logo.png';
 
-class Header extends React.Component {
+class Header extends React.PureComponent {
 
     state = {
         userName: '',
