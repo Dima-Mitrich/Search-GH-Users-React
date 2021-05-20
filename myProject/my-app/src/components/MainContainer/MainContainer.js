@@ -1,9 +1,9 @@
 import React from 'react';
-import Header from './Header';
-import EmptyScreen from './EptyScreen';
-import Profile from './Profile';
-import UserRepos from './UserRepos';
-import { Preloader } from './Preloader';
+import Header from '../Header/Header';
+import EmptyScreen from '../EmptyScreen/EptyScreen';
+import Profile from '../Profile/Profile';
+import UserRepos from '../UserRepos/UserRepos';
+import { Preloader } from '../Preloader/Preloader';
 
 import './MainContainer.css'
 
@@ -84,7 +84,7 @@ class MainContainer extends React.Component {
 
     updateRepos = (i) => {
         (async function () {
-            this.setState({isFetchingRepos: true})
+            this.setState({ isFetchingRepos: true })
             let currUser = this.state.userInfo.userName
             let newPageRepos = await this.getRepositories(currUser, i).bind(this)();
             this.setState({ userRepo: newPageRepos, currentPage: i, isFetchingRepos: false })
@@ -108,7 +108,9 @@ class MainContainer extends React.Component {
                                     isFetching={this.state.isFetchingRepos}
                                     id='pageRepos' />
                             </div> :
-                        <EmptyScreen status={this.state.status} id='pageEmptyScreen' />
+                        <div className='empty-screen-container'>
+                            <EmptyScreen status={this.state.status} id='pageEmptyScreen' />
+                        </div>
                 }
             </div>
         )

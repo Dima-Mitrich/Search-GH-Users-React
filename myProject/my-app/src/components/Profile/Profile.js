@@ -1,7 +1,7 @@
 import React from 'react';
 
-import followers from './images/shared.png';
-import following from './images/provate.png';
+import followers from '../../assets/images/shared.png';
+import following from '../../assets/images/provate.png';
 
 import './Profile.css'
 
@@ -10,12 +10,14 @@ class Profile extends React.PureComponent {
     render() {
         return (
             <div id='userProfile' className='user-profile'>
-                <img src={this.props.userInfo.photo} alt='user avatar' id='userAvatar' />
-                <span id='span-name'>{this.props.userInfo.name}</span>
-                <a href={this.props.userInfo.htmlUrl}
-                    id='a-userName'
-                    target='_blank'
-                    rel="noopener noreferrer">{this.props.userInfo.userName}</a>
+                <div id='nameContainer'>
+                    <img src={this.props.userInfo.photo} alt='user avatar' id='userAvatar' />
+                    <span id='span-name'>{this.props.userInfo.name}</span>
+                    <a href={this.props.userInfo.htmlUrl}
+                        id='a-userName'
+                        target='_blank'
+                        rel="noopener noreferrer">{this.props.userInfo.userName}</a>
+                </div>
                 <div id='followersContainer'>
                     <img src={followers} alt='followers logo' id='followersLogo' />
                     <span>{

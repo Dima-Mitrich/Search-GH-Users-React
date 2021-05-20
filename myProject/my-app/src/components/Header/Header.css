@@ -22,8 +22,22 @@
     font-size: 14px;
     font-family: 'Inter';
     font-weight: 400;
-    background: url(./images/search.png) no-repeat 4.6% 54%;
+    background: url(../../assets/images/search.png) no-repeat 4.6% 54%;
     background-size: auto 40%;
     background-color: white;
     padding-left: 4%;
+}
+
+@media (max-width: 700px) {
+    .headerContainer input {
+        background: none;
+        background-color: white;
+        margin-left: 1%;
+    }
+}
+
+@media (max-width: 500px) {
+    .headerContainer img {
+        display: none;
+    }
 }

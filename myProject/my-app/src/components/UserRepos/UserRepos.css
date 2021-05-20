@@ -71,3 +71,37 @@
     line-height: 42px;
     margin-top: 28px;
 }
+
+@media (max-width: 800px) {
+    .repositories-title {
+        font-size: 20px;
+        margin-top: 20px;
+        margin-left: 18px;
+    }
+
+    .user-repos {
+        width: 100%;
+        height: 70%;
+    }
+
+    .paginate-container {
+        margin-left: 18px;
+    }
+
+    .paginate-container ul {
+        padding-left: 0px;
+    }
+
+    .paginate-descriptor {
+        font-size: 12px;
+        margin-right: 22px;
+    }
+
+    .page-li, .break-li, .next-li, .prev-li{
+        font-size: 12px;
+    }
+
+    .paginate-container li a {
+        padding: 3px 3px;
+    }
+}

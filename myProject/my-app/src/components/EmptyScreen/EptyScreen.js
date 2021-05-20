@@ -1,7 +1,7 @@
 import React from 'react';
-import searchLogo from './images/search.png';
-import noReposLogo from './images/no-repos-logo.png';
-import noUserLogo from './images/no-user-logo.png';
+import searchLogo from '../../assets/images/search.png'
+import noReposLogo from '../../assets/images/no-repos-logo.png';
+import noUserLogo from '../../assets/images/no-user-logo.png';
 
 import './EmptyScreen.css'
 
