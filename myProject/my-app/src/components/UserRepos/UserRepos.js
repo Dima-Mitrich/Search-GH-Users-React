@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import EmptyScreen from '../EmptyScreen/EptyScreen';
 import ReactPaginate from 'react-paginate';
-import Repository from '../Repository/Repository';
+import { Repository } from '../Repository/Repository';
 import { Preloader } from '../Preloader/Preloader';
 
 import './UserRepos.css'
@@ -49,7 +49,7 @@ class UserRepos extends React.Component {
                         activeClassName='active-li'
                         onPageChange={this.onPageChange}
                         forcePage={this.props.currentPage - 1}
-                        />
+                    />
                 </div>
             </Fragment>
         )
