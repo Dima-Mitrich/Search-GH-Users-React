@@ -1,8 +1,13 @@
 import React from 'react';
 import './Header.css';
 import logo from '../../assets/images/logo.png';
+import PropTypes from 'prop-types';
 
 class Header extends React.PureComponent {
+
+    static propTypes = {
+        cbStartSearching: PropTypes.func.isRequired,
+    }
 
     state = {
         userName: '',

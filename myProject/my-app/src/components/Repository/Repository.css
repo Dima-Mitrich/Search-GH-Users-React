@@ -32,9 +32,9 @@
 @media (max-width: 800px) {
     .repository-container {
         height: 80px;
-        
         width: 90%;
         margin-left: 5%;
+        margin-top: 1.5%;
     }
 
     .repository-container a {

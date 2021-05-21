@@ -98,7 +98,10 @@ class MainContainer extends React.Component {
                 {
                     this.state.searchHasStarted ?
                         this.state.isFetching ?
-                            <Preloader type='Oval' width={80} height={80} color='rgba(0, 100, 235, 1)' /> :
+                            <div className='empty-screen-container'>
+                                <Preloader type='Oval' width={80} height={80} color='rgba(0, 100, 235, 1)' />
+                            </div>
+                            :
                             <div className='userContainer'>
                                 <Profile userInfo={this.state.userInfo} id='pageProfile' />
                                 <UserRepos userRepos={this.state.userRepo}
@@ -107,7 +110,8 @@ class MainContainer extends React.Component {
                                     currentPage={this.state.currentPage}
                                     isFetching={this.state.isFetchingRepos}
                                     id='pageRepos' />
-                            </div> :
+                            </div>
+                        :
                         <div className='empty-screen-container'>
                             <EmptyScreen status={this.state.status} id='pageEmptyScreen' />
                         </div>

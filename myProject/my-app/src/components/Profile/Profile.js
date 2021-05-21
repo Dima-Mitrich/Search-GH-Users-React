@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import followers from '../../assets/images/shared.png';
 import following from '../../assets/images/provate.png';
@@ -6,6 +7,10 @@ import following from '../../assets/images/provate.png';
 import './Profile.css'
 
 class Profile extends React.PureComponent {
+
+    static propTypes = {
+        userInfo: PropTypes.object.isRequired,
+    }
 
     render() {
         return (

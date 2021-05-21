@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import searchLogo from '../../assets/images/search.png'
 import noReposLogo from '../../assets/images/no-repos-logo.png';
 import noUserLogo from '../../assets/images/no-user-logo.png';
@@ -6,6 +7,11 @@ import noUserLogo from '../../assets/images/no-user-logo.png';
 import './EmptyScreen.css'
 
 class EmptyScreen extends React.Component {
+
+    static propTypes = {
+        status: PropTypes.string.isRequired,
+    }
+
     render() {
         let logo, describe;
         switch (this.props.status) {

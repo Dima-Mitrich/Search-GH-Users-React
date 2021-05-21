@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 import EmptyScreen from '../EmptyScreen/EptyScreen';
 import ReactPaginate from 'react-paginate';
 import { Repository } from '../Repository/Repository';
@@ -7,6 +8,14 @@ import { Preloader } from '../Preloader/Preloader';
 import './UserRepos.css'
 
 class UserRepos extends React.Component {
+
+    static propTypes = {
+        userRepos: PropTypes.array,
+        numberRepos: PropTypes.number,
+        cbUpdateRepos: PropTypes.func,
+        currentPage: PropTypes.number,
+        isFetching: PropTypes.bool,
+    }
 
     state = {
         isFetching: false,
