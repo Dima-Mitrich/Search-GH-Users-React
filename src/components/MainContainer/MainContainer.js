@@ -79,7 +79,6 @@ class MainContainer extends React.Component {
                 console.log(err)
             }
         }).bind(this)()
-
     }
 
     updateRepos = (i) => {
