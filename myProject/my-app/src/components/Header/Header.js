@@ -40,6 +40,7 @@ class Header extends React.PureComponent {
                     placeholder='Enter GitHub username'
                     value={this.state.userName}
                     onChange={this.onChangeUserName} />
+                    <button onClick={this.props.cbStartSearching(this.state.userName)}>here</button>
             </header>
         )
     }
