@@ -55,7 +55,8 @@ class MainContainer extends React.Component {
     }
 
     startSearching = (userName) => {
-        (async function () {
+
+        (async () => {
             this.setState({ isFetching: true, searchHasStarted: true });
             try {
                 let userInfoCollection = await this.getUser(userName).bind(this)();
@@ -78,16 +79,16 @@ class MainContainer extends React.Component {
             } catch (err) {
                 console.log(err)
             }
-        }).bind(this)()
+        })();
     }
 
     updateRepos = (i) => {
-        (async function () {
+        (async () => {
             this.setState({ isFetchingRepos: true })
             let currUser = this.state.userInfo.userName
             let newPageRepos = await this.getRepositories(currUser, i).bind(this)();
             this.setState({ userRepo: newPageRepos, currentPage: i, isFetchingRepos: false })
-        }).bind(this)()
+        })();
     }
 
     render() {
