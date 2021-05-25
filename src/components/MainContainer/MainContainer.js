@@ -47,10 +47,16 @@ class MainContainer extends React.Component {
 
     getRepositories = (userName, i) => {
         return async function () {
-            let responseUserRepo = await fetch(`https://api.github.com/users/${userName}/repos?per_page=4&page=${i}&sort=updated`);
-            let userRepo = await responseUserRepo.json();
+            try {
+                let responseUserRepo = await fetch(`https://api.github.com/users/${userName}/repos?per_page=4&page=${i}&sort=updated`);
 
-            return userRepo;
+                if (!responseUserRepo.ok) throw responseUserRepo;
+
+                let userRepo = await responseUserRepo.json();
+                return userRepo;
+            } catch (err) {
+                return err;
+            }
         }
     }
 
@@ -85,10 +91,14 @@ class MainContainer extends React.Component {
 
     updateRepos = (i) => {
         (async () => {
-            this.setState({ isFetchingRepos: true })
-            let currUser = this.state.userInfo.userName
-            let newPageRepos = await this.getRepositories(currUser, i).bind(this)();
-            this.setState({ userRepo: newPageRepos, currentPage: i, isFetchingRepos: false })
+            try {
+                this.setState({ isFetchingRepos: true })
+                let currUser = this.state.userInfo.userName
+                let newPageRepos = await this.getRepositories(currUser, i).bind(this)();
+                this.setState({ userRepo: newPageRepos, currentPage: i, isFetchingRepos: false })
+            } catch (err) {
+                alert(err);
+            }
         })();
     }
 
