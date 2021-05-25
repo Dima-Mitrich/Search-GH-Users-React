@@ -62,6 +62,7 @@ class MainContainer extends React.Component {
                 let userInfoCollection = await this.getUser(userName).bind(this)();
 
                 if (userInfoCollection instanceof Error) {
+
                     this.setState({
                         searchHasStarted: false,
                         userInfo: null,
@@ -77,7 +78,7 @@ class MainContainer extends React.Component {
 
                 this.setState({ profileIsReady: true, userInfo: userInfoCollection, userRepo: userRepo, currentPage: 1, isFetching: false });
             } catch (err) {
-                console.log(err)
+                err.message === 'user not found' ? console.log(err) : alert(err);
             }
         })();
     }

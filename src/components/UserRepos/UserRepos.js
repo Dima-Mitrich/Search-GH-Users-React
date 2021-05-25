@@ -46,7 +46,7 @@ class UserRepos extends React.Component {
                     <span className='paginate-descriptor'>
                         {bottomReposLine} - {topReposLine} of {this.props.numberRepos} items
                     </span>
-                    <ReactPaginate pageCount={this.props.numberRepos / 4}
+                    <ReactPaginate pageCount={this.props.numberRepos / 4 - 0.01} //paginae doesn't show last page number if page count is integer
                         pageRangeDisplayed={2}
                         marginPagesDisplayed={0}
                         previousLabel='<'
