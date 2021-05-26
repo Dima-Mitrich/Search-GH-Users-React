@@ -104,4 +104,12 @@
     .paginate-container li a {
         padding: 3px 3px;
     }
+
+    .next-li {
+        margin-left: 5px;
+    }
+    
+    .prev-li {
+        margin-right: 5px;
+    }
 }
