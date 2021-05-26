@@ -5,7 +5,6 @@
 #userAvatar {
     border-radius: 50%;
     width: 60%;
-    min-width: 150px;
     margin-top: 8%;
     margin-left: 12%;
 }
@@ -83,6 +82,15 @@
     }
 
     #userAvatar {
+        width: 150px;
+    }
+}
+
+@media (max-height: 750px) {
+    #userAvatar {
         width: 100px;
     }
 }
+
+
+    
