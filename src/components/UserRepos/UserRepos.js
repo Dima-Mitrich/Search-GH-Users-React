@@ -22,8 +22,8 @@ class UserRepos extends React.Component {
     }
 
     onPageChange = (arg) => {
-        let currPage = arg.selected + 1;
-        if (this.props.currentPage !== currPage) this.props.cbUpdateRepos(currPage);
+        let selectedPage = arg.selected + 1;
+        if (this.props.currentPage !== selectedPage) this.props.cbUpdateRepos(selectedPage);
     }
 
     render() {
