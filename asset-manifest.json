@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/testTaskForStartupSummer/static/css/main.b1e93ff9.chunk.css",
+    "main.css": "/testTaskForStartupSummer/static/css/main.cbd2d41c.chunk.css",
     "main.js": "/testTaskForStartupSummer/static/js/main.92a3c3d5.chunk.js",
     "main.js.map": "/testTaskForStartupSummer/static/js/main.92a3c3d5.chunk.js.map",
     "runtime-main.js": "/testTaskForStartupSummer/static/js/runtime-main.47686ef3.js",
@@ -10,14 +10,14 @@
     "static/js/3.ac63372e.chunk.js": "/testTaskForStartupSummer/static/js/3.ac63372e.chunk.js",
     "static/js/3.ac63372e.chunk.js.map": "/testTaskForStartupSummer/static/js/3.ac63372e.chunk.js.map",
     "index.html": "/testTaskForStartupSummer/index.html",
-    "static/css/main.b1e93ff9.chunk.css.map": "/testTaskForStartupSummer/static/css/main.b1e93ff9.chunk.css.map",
+    "static/css/main.cbd2d41c.chunk.css.map": "/testTaskForStartupSummer/static/css/main.cbd2d41c.chunk.css.map",
     "static/js/2.6c9cec4c.chunk.js.LICENSE.txt": "/testTaskForStartupSummer/static/js/2.6c9cec4c.chunk.js.LICENSE.txt",
     "static/media/Profile.css": "/testTaskForStartupSummer/static/media/Inter-VariableFont_slnt,wght.f958c681.ttf"
   },
   "entrypoints": [
     "static/js/runtime-main.47686ef3.js",
     "static/js/2.6c9cec4c.chunk.js",
-    "static/css/main.b1e93ff9.chunk.css",
+    "static/css/main.cbd2d41c.chunk.css",
     "static/js/main.92a3c3d5.chunk.js"
   ]
 }
