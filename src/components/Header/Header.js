@@ -27,7 +27,7 @@ class Header extends React.PureComponent {
     }
 
     handleKeyPress = (event) => {
-        if (event.keyCode === 13) {
+        if (event.keyCode === 13 && this.state.userName) {
             this.props.cbStartSearching(this.state.userName);
         }
     }
